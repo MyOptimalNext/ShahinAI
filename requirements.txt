@@ -1,0 +1,2 @@
+flask
+huggingface_hub
