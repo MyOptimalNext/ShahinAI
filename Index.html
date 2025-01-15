@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShahinAI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            min-height: 100vh;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-icon {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-icon:hover {
+            color: #2196F3;
+        }
+
+        .nav-icon i {
+            font-size: 18px;
+        }
+
+        .image-container {
+            width: 100%;
+            height: calc(100vw);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .full-width-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(128, 128, 128, 0.5); /* رمادي مع شفافية 50% */
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            transform: translateY(-50%);
+        }
+
+        .square-container {
+            width: 100%;
+            padding: 20px;
+            aspect-ratio: 1/1;  /* يجعل الحاوية مربعة */
+            background: rgba(255, 255, 255, 0.6); /* شفافية 60% */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            gap: 20px;
+        }
+
+        .side-image {
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .description {
+            width: 50%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .description h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .description p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .full-width-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+        }
+
+        .full-width-button:hover {
+            background-color: #1976D2;
+        }
+
+        .news-ticker {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            overflow: hidden;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .news-ticker a {
+            color: #2196F3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .news-ticker p {
+            display: inline-block;
+            padding-left: 100%;
+            animation: ticker 10s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            ShahinAI
+        </div>
+        <div class="nav-icons">
+            <a href="#" class="nav-icon">
+                <i class="fas fa-question-circle"></i>
+                دعم
+            </a>
+            <a href="#" class="nav-icon">
+                <i class="fas fa-info-circle"></i>
+                حول
+            </a>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <div class="overlay">نص فوق الصورة</div> <!-- مستطيل رمادي مع نص -->
+        <img src="R.png" alt="R Image" class="full-width-image">
+    </div>
+
+    <div class="square-container">
+        <div class="content-wrapper">
+            <img src="R.png" alt="Side Image" class="side-image">
+            <div class="description">
+                <h2>عنوان الوصف</h2>
+                <p>
+                    هنا يمكنك إضافة وصف تفصيلي عن المحتوى. يمكن أن يكون هذا النص طويلاً بما فيه الكفاية ليملأ المساحة المخصصة له. أضف المزيد من التفاصيل والمعلومات المهمة هنا.
+                </p>
+            </div>
+        </div>
+        <a href="file.html" class="full-width-button">اضغط هنا</a>
+    </div>
+
+    <div class="news-ticker">
+        <p>تعرف على الجديد من <a href="file.html">هنا</a></p>
+    </div>
+
+    <div class="square-container">
+        <div class="content-wrapper">
+            <img src="R.png" alt="Side Image" class="side-image">
+            <div class="description">
+                <h2>عنوان الوصف</h2>
+                <p>
+                    هنا يمكنك إضافة وصف تفصيلي عن المحتوى. يمكن أن يكون هذا النص طويلاً بما فيه الكفاية ليملأ المساحة المخصصة له. أضف المزيد من التفاصيل والمعلومات المهمة هنا.
+                </p>
+            </div>
+        </div>
+        <a href="file.html" class="full-width-button">اضغط هنا</a>
+    </div>
+
+    <div class="news-ticker">
+        <p>تعرف على الجديد من <a href="file.html">هنا</a></p>
+    </div>
+
+    <div class="square-container">
+        <div class="content-wrapper">
+            <img src="R.png" alt="Side Image" class="side-image">
+            <div class="description">
+                <h2>عنوان الوصف</h2>
+                <p>
+                    هنا يمكنك إضافة وصف تفصيلي عن المحتوى. يمكن أن يكون هذا النص طويلاً بما فيه الكفاية ليملأ المساحة المخصصة له. أضف المزيد من التفاصيل والمعلومات المهمة هنا.
+                </p>
+            </div>
+        </div>
+        <a href="file.html" class="full-width-button">اضغط هنا</a>
+    </div>
+</body>
+</html>
