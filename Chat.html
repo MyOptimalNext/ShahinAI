@@ -201,12 +201,14 @@ function addMessage(content, isUser) {
     messageDiv.className = `message ${isUser ? 'user-message' : 'ai-message'}`;
 
     // تجزئة النص باستخدام التعبيرات المنتظمة
-    const parts = content.split(/(```[\s\S]*?```|\*\*[\s\S]*?\*\*|\bhttps?:\/\/\S+\b)/g);
+    const parts = content.split(/(```([\s\S]*?)```|\*\*([\s\S]*?)\*\*|\bhttps?:\/\/\S+\b)/g);
 
     parts.forEach(part => {
-        if (part.startsWith('```')) {
+        const codeMatch = part.match(/^```(\w+)?\s*([\s\S]*?)```$/);
+        if (codeMatch) {
             // إذا كان الجزء كود
-            const codeContent = part.slice(3, -3);
+            const language = codeMatch[1] || 'plaintext';
+            const codeContent = codeMatch[2];
             const codeDiv = document.createElement('div');
             codeDiv.className = 'code-container';
 
@@ -219,6 +221,14 @@ function addMessage(content, isUser) {
             copyButton.className = 'copy-button';
             copyButton.textContent = 'نسخ';
             copyButton.onclick = () => copyToClipboard(codeContent);
+
+            // إضافة اسم اللغة
+            const languageLabel = document.createElement('span');
+            languageLabel.textContent = language;
+            languageLabel.style.marginRight = '10px';
+            languageLabel.style.color = 'white';
+
+            buttonBar.appendChild(languageLabel);
             buttonBar.appendChild(copyButton);
 
             codeDiv.appendChild(buttonBar);
