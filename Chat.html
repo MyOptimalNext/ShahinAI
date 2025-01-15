@@ -48,7 +48,7 @@
             overflow-y: auto;
             scrollbar-width: thin;
             scrollbar-color: #ccc transparent;
-            margin-top: 30px; /* إضافة هذه الخاصية لترك مسافة 30 بكسل */
+            margin-top: 65px; /* إضافة هذه الخاصية لترك مسافة 30 بكسل */
         }
 
         .chat-container::-webkit-scrollbar {
@@ -89,6 +89,10 @@
             padding: 10px;
             background: black;
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            z-index: 1000;
         }
 
         .input-area textarea {
