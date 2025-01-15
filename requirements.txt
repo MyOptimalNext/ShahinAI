@@ -1,3 +1,0 @@
-flask
-huggingface_hub
-gunicorn
