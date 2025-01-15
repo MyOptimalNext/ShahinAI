@@ -205,7 +205,7 @@
 
     <div class="input-area">
         <div class="input-group">
-            <textarea id="promptInput" placeholder="اكتب وصفاً للصورة التي تريد إنشاءها..."></textarea>
+            <textarea id="promptInput" placeholder="اكتب وصفاً للصورة (الانجليزية لنتائج أدق)..."></textarea>
             <button class="create-btn" id="fetchDataBtn">
                 <i class="fas fa-magic"></i>
                 إنشاء
@@ -256,7 +256,7 @@
             const responseDiv = document.getElementById("response");
 
             // إظهار الجملة "جار معالجة طلبك..."
-            loadingTextDiv.innerHTML = "<div class='neon-text'>جار معالجة طلبك...</div>";
+            loadingTextDiv.innerHTML = "<div class='neon-text'>جار معالجة طلبك...لا تحدث الصفحة</div>";
             fetchDataBtn.disabled = true;
 
             const apiUrl = 'https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev';
