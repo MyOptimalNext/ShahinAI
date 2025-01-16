@@ -257,6 +257,14 @@ function addMessage(content, isUser) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${isUser ? 'user-message' : 'ai-message'}`;
 
+    // إذا كانت الرسالة من الذكاء الاصطناعي، أضف الأيقونة
+    if (!isUser) {
+        const aiIcon = document.createElement('div');
+        aiIcon.className = 'ai-icon';
+        aiIcon.innerHTML = `<img src="./bot.png" alt="Bot">`;
+        messageDiv.appendChild(aiIcon);
+    }
+
     // تجزئة النص باستخدام التعبيرات المنتظمة
     const parts = content.split(/(```[\s\S]*?```|\*\*[\s\S]*?\*\*|\bhttps?:\/\/\S+\b)/g);
 
@@ -333,6 +341,7 @@ async function sendMessage() {
     // تصفية الإدخال
     messageInput.value = '';
 
+    // عرض مؤشر الكتابة
     const typingIndicator = document.createElement('div');
     typingIndicator.className = 'message ai-message';
     typingIndicator.innerHTML = `
@@ -371,6 +380,7 @@ async function sendMessage() {
         // قراءة استجابة JSON
         const data = await response.json();
 
+        // إزالة مؤشر الكتابة
         typingIndicator.remove();
 
         // التحقق من الرد واستخراج النص
@@ -385,6 +395,6 @@ async function sendMessage() {
         addMessage(`حدث خطأ اثناء الاتصال بالخادم: ${error.message} اعد المحاولة لاحقا`, false);
     }
 }
-    </script>
+</script>
 </body>
 </html>
